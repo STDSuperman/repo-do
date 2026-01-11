@@ -9,7 +9,7 @@ export async function listCommand(options: { refresh?: boolean }): Promise<void>
 
     if (repos.length === 0) {
       logger.warn('No repositories found.');
-      logger.info('Use "git-m add <repo_url>" to add repositories.');
+      logger.info('Use "git-go add <repo_url>" to add repositories.');
       return;
     }
 

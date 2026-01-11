@@ -11,7 +11,7 @@ import { configCommand } from './commands/config';
 const program = new Command();
 
 program
-  .name('git-m')
+  .name('repo-do')
   .description('Unified git repository management tool')
   .version('1.0.0');
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-# git-m
+# repo-do
 
 一个用于统一管理 Git 仓库的 CLI 工具，提供结构化的目录布局。
 以一致的、基于域名的结构组织你的所有仓库。
@@ -8,16 +8,16 @@
 
 [English](../README.md) · 简体中文
 
-[![npm 版本](https://img.shields.io/npm/v/git-m.svg?style=flat-square)](https://www.npmjs.com/package/git-m)
-[![许可证](https://img.shields.io/npm/l/git-m.svg?style=flat-square)](https://github.com/STDSuperman/git-m/blob/master/LICENSE)
-[![Node.js 版本](https://img.shields.io/node/v/git-m.svg?style=flat-square)](https://nodejs.org)
-[![下载量](https://img.shields.io/npm/dm/git-m.svg?style=flat-square)](https://www.npmjs.com/package/git-m)
+[![npm 版本](https://img.shields.io/npm/v/repo-do.svg?style=flat-square)](https://www.npmjs.com/package/repo-do)
+[![许可证](https://img.shields.io/npm/l/repo-do.svg?style=flat-square)](https://github.com/STDSuperman/repo-do/blob/master/LICENSE)
+[![Node.js 版本](https://img.shields.io/node/v/repo-do.svg?style=flat-square)](https://nodejs.org)
+[![下载量](https://img.shields.io/npm/dm/repo-do.svg?style=flat-square)](https://www.npmjs.com/package/repo-do)
 
 </div>
 
 ## 概述
 
-`git-m` 帮助你以统一的、基于域名的目录结构组织所有 Git 仓库。它会自动将仓库克隆到规范的路径下，并提供快速搜索功能，让你轻松查找和访问项目。
+`repo-do` 帮助你以统一的、基于域名的目录结构组织所有 Git 仓库。它会自动将仓库克隆到规范的路径下，并提供快速搜索功能，让你轻松查找和访问项目。
 
 ## 特性
 
@@ -31,7 +31,7 @@
 ## 安装
 
 ```bash
-npm install -g git-m
+npm install -g repo-do
 ```
 
 ## 快速开始
@@ -39,15 +39,15 @@ npm install -g git-m
 ### 1. 初始化配置
 
 ```bash
-git-m init
+repo-do init
 ```
 
-这将提示你设置存储仓库的基础目录（默认：`~/.git-m/repo`）。
+这将提示你设置存储仓库的基础目录（默认：`~/.repo-do/repo`）。
 
 ### 2. 克隆仓库
 
 ```bash
-git-m add git@github.com:STDSuperman/super-image-cropper.git
+repo-do add git@github.com:STDSuperman/super-image-cropper.git
 ```
 
 仓库将被克隆到：
@@ -60,7 +60,7 @@ git-m add git@github.com:STDSuperman/super-image-cropper.git
 ### 3. 查找仓库
 
 ```bash
-git-m find super-image
+repo-do find super-image
 ```
 
 输出：
@@ -72,7 +72,7 @@ git-m find super-image
 ### 4. 列出所有仓库
 
 ```bash
-git-m list
+repo-do list
 ```
 
 输出：
@@ -86,15 +86,15 @@ gitlab.com/myorg/internal-tool
 
 ## 命令
 
-### `git-m init`
+### `repo-do init`
 
 初始化配置并设置仓库的基础目录。
 
 ```bash
-git-m init
+repo-do init
 ```
 
-### `git-m add <repo_url> [git-clone-args...]`
+### `repo-do add <repo_url> [git-clone-args...]`
 
 克隆仓库到结构化目录。
 
@@ -106,16 +106,16 @@ git-m init
 
 ```bash
 # 基础克隆
-git-m add git@github.com:STDSuperman/super-image-cropper.git
+repo-do add git@github.com:STDSuperman/super-image-cropper.git
 
 # 浅克隆
-git-m add https://github.com/STDSuperman/super-image-cropper.git --depth 1
+repo-do add https://github.com/STDSuperman/super-image-cropper.git --depth 1
 
 # 克隆指定分支
-git-m add https://github.com/STDSuperman/super-image-cropper.git --branch develop
+repo-do add https://github.com/STDSuperman/super-image-cropper.git --branch develop
 
 # SSH 克隆
-git-m add git@github.com:STDSuperman/NanoBanana-PPT-Skills.git
+repo-do add git@github.com:STDSuperman/NanoBanana-PPT-Skills.git
 ```
 
 **目录结构：**
@@ -130,14 +130,14 @@ git-m add git@github.com:STDSuperman/NanoBanana-PPT-Skills.git
         └── internal-tool/
 ```
 
-### `git-m find <query>`
+### `repo-do find <query>`
 
 通过名称、组织或路径片段搜索仓库（不区分大小写）。
 
 ```bash
-git-m find super-image
-git-m find STDSuperman
-git-m find github.com
+repo-do find super-image
+repo-do find STDSuperman
+repo-do find github.com
 ```
 
 **输出格式：**
@@ -149,41 +149,41 @@ git-m find github.com
 
 每个结果前都有序号，后面是仓库的绝对路径。
 
-### `git-m list [--refresh]`
+### `repo-do list [--refresh]`
 
 列出所有管理的仓库。
 
 ```bash
 # 从缓存列出（快速）
-git-m list
+repo-do list
 
 # 强制重建缓存
-git-m list --refresh
+repo-do list --refresh
 ```
 
-### `git-m remove <repo>`
+### `repo-do remove <repo>`
 
 从追踪中移除仓库（不会删除文件）。
 
 ```bash
-git-m remove super-image
+repo-do remove super-image
 ```
 
 如果找到多个匹配项，会提示你选择要移除的仓库。
 
-### `git-m config [options]`
+### `repo-do config [options]`
 
 查看或修改配置。
 
 ```bash
 # 显示当前配置
-git-m config
+repo-do config
 
 # 获取基础目录
-git-m config --get baseDirectory
+repo-do config --get baseDirectory
 
 # 设置基础目录
-git-m config --set baseDirectory /path/to/repos
+repo-do config --set baseDirectory /path/to/repos
 ```
 
 ## 目录结构
@@ -204,7 +204,7 @@ git-m config --set baseDirectory /path/to/repos
 
 ## 配置
 
-配置存储在 `~/.git-m/config.json`：
+配置存储在 `~/.repo-do/config.json`：
 
 ```json
 {
@@ -215,12 +215,12 @@ git-m config --set baseDirectory /path/to/repos
 
 ## 缓存系统
 
-为了提高性能，`git-m` 在 `~/.git-m/repo_cache.json` 维护了一个仓库缓存。
+为了提高性能，`repo-do` 在 `~/.repo-do/repo_cache.json` 维护了一个仓库缓存。
 
 **缓存会在以下情况自动更新：**
-- 添加新仓库（`git-m add`）
-- 移除仓库（`git-m remove`）
-- 强制刷新（`git-m list --refresh`）
+- 添加新仓库（`repo-do add`）
+- 移除仓库（`repo-do remove`）
+- 强制刷新（`repo-do list --refresh`）
 
 **缓存格式：**
 ```json
@@ -260,7 +260,7 @@ git-m config --set baseDirectory /path/to/repos
 
 ## 错误处理
 
-`git-m` 为常见问题提供清晰的错误消息：
+`repo-do` 为常见问题提供清晰的错误消息：
 
 - **INVALID_URL**：无法识别的 Git URL 格式
 - **CLONE_FAILED**：Git 克隆操作失败
@@ -273,8 +273,8 @@ git-m config --set baseDirectory /path/to/repos
 
 ```bash
 # 克隆仓库
-git clone https://github.com/your-username/git-m.git
-cd git-m
+git clone https://github.com/your-username/repo-do.git
+cd repo-do
 
 # 安装依赖
 npm install
@@ -292,7 +292,7 @@ npm test
 ## 项目结构
 
 ```
-git-m/
+repo-do/
 ├── src/
 │   ├── commands/        # CLI 命令实现
 │   ├── core/            # 核心业务逻辑
@@ -301,7 +301,7 @@ git-m/
 │   ├── constants/       # 常量
 │   └── index.ts         # CLI 入口
 ├── bin/
-│   └── git-m.js         # 可执行文件入口
+│   └── repo-do.js         # 可执行文件入口
 ├── dist/                # 编译输出
 └── tests/               # 测试文件
 ```

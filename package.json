@@ -1,10 +1,10 @@
 {
-  "name": "git-m",
+  "name": "repo-do",
   "version": "1.0.0",
   "description": "Unified git repository management tool",
   "main": "dist/index.js",
   "bin": {
-    "git-m": "./bin/git-m.js"
+    "repo-do": "./bin/repo-do.js"
   },
   "scripts": {
     "build": "tsc",

@@ -2,7 +2,7 @@ import os from 'os';
 import path from 'path';
 
 export const CONFIG_VERSION = '1.0.0';
-export const CONFIG_DIR = path.join(os.homedir(), '.git-m');
+export const CONFIG_DIR = path.join(os.homedir(), '.repo-do');
 export const CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');
 export const CACHE_FILE = path.join(CONFIG_DIR, 'repo_cache.json');
 export const DEFAULT_BASE_DIR = path.join(CONFIG_DIR, 'repo');

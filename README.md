@@ -1,6 +1,6 @@
 <div align="center">
 
-# git-m
+# repo-do
 
 A unified CLI tool for managing git repositories with a structured directory layout.
 Organize all your repositories in a consistent domain-based structure.
@@ -8,16 +8,16 @@ Fast search, clipboard integration, and cross-platform support.
 
 English · [简体中文](./docs/README.zh-CN.md)
 
-[![npm version](https://img.shields.io/npm/v/git-m.svg?style=flat-square)](https://www.npmjs.com/package/git-m)
-[![license](https://img.shields.io/npm/l/git-m.svg?style=flat-square)](https://github.com/STDSuperman/git-m/blob/master/LICENSE)
-[![node version](https://img.shields.io/node/v/git-m.svg?style=flat-square)](https://nodejs.org)
-[![downloads](https://img.shields.io/npm/dm/git-m.svg?style=flat-square)](https://www.npmjs.com/package/git-m)
+[![npm version](https://img.shields.io/npm/v/repo-do.svg?style=flat-square)](https://www.npmjs.com/package/repo-do)
+[![license](https://img.shields.io/npm/l/repo-do.svg?style=flat-square)](https://github.com/STDSuperman/repo-do/blob/master/LICENSE)
+[![node version](https://img.shields.io/node/v/repo-do.svg?style=flat-square)](https://nodejs.org)
+[![downloads](https://img.shields.io/npm/dm/repo-do.svg?style=flat-square)](https://www.npmjs.com/package/repo-do)
 
 </div>
 
 ## Overview
 
-`git-m` helps you organize all your git repositories in a consistent, domain-based directory structure. It automatically clones repositories to organized paths and provides fast search capabilities to find and navigate to your projects.
+`repo-do` helps you organize all your git repositories in a consistent, domain-based directory structure. It automatically clones repositories to organized paths and provides fast search capabilities to find and navigate to your projects.
 
 ## Features
 
@@ -31,7 +31,7 @@ English · [简体中文](./docs/README.zh-CN.md)
 ## Installation
 
 ```bash
-npm install -g git-m
+npm install -g repo-do
 ```
 
 ## Quick Start
@@ -39,15 +39,15 @@ npm install -g git-m
 ### 1. Initialize Configuration
 
 ```bash
-git-m init
+repo-do init
 ```
 
-This prompts you to set a base directory for storing repositories (default: `~/.git-m/repo`).
+This prompts you to set a base directory for storing repositories (default: `~/.repo-do/repo`).
 
 ### 2. Clone a Repository
 
 ```bash
-git-m add git@github.com:STDSuperman/super-image-cropper.git
+repo-do add git@github.com:STDSuperman/super-image-cropper.git
 ```
 
 The repository will be cloned to:
@@ -60,7 +60,7 @@ The `cd` command is automatically copied to your clipboard!
 ### 3. Find a Repository
 
 ```bash
-git-m find super-image
+repo-do find super-image
 ```
 
 Output:
@@ -72,7 +72,7 @@ Found 1 repository:
 ### 4. List All Repositories
 
 ```bash
-git-m list
+repo-do list
 ```
 
 Output:
@@ -86,15 +86,15 @@ Total: 3 repositories
 
 ## Commands
 
-### `git-m init`
+### `repo-do init`
 
 Initialize configuration and set the base directory for repositories.
 
 ```bash
-git-m init
+repo-do init
 ```
 
-### `git-m add <repo_url> [git-clone-args...]`
+### `repo-do add <repo_url> [git-clone-args...]`
 
 Clone a repository to the structured directory.
 
@@ -106,16 +106,16 @@ Clone a repository to the structured directory.
 
 ```bash
 # Basic clone
-git-m add git@github.com:STDSuperman/super-image-cropper.git
+repo-do add git@github.com:STDSuperman/super-image-cropper.git
 
 # Shallow clone
-git-m add https://github.com/STDSuperman/super-image-cropper.git --depth 1
+repo-do add https://github.com/STDSuperman/super-image-cropper.git --depth 1
 
 # Clone specific branch
-git-m add https://github.com/STDSuperman/super-image-cropper.git --branch develop
+repo-do add https://github.com/STDSuperman/super-image-cropper.git --branch develop
 
 # SSH clone
-git-m add git@github.com:STDSuperman/NanoBanana-PPT-Skills.git
+repo-do add git@github.com:STDSuperman/NanoBanana-PPT-Skills.git
 ```
 
 **Directory structure:**
@@ -130,14 +130,14 @@ git-m add git@github.com:STDSuperman/NanoBanana-PPT-Skills.git
         └── internal-tool/
 ```
 
-### `git-m find <query>`
+### `repo-do find <query>`
 
 Search for repositories by name, group, or path fragment (case-insensitive).
 
 ```bash
-git-m find super-image
-git-m find STDSuperman
-git-m find github.com
+repo-do find super-image
+repo-do find STDSuperman
+repo-do find github.com
 ```
 
 **Output format:**
@@ -149,41 +149,41 @@ Found 2 repositories:
 
 Each result is prefixed with a number, followed by the absolute path.
 
-### `git-m list [--refresh]`
+### `repo-do list [--refresh]`
 
 List all managed repositories.
 
 ```bash
 # List from cache (fast)
-git-m list
+repo-do list
 
 # Force rebuild cache
-git-m list --refresh
+repo-do list --refresh
 ```
 
-### `git-m remove <repo>`
+### `repo-do remove <repo>`
 
 Remove a repository from tracking (does not delete files).
 
 ```bash
-git-m remove super-image
+repo-do remove super-image
 ```
 
 If multiple matches are found, you'll be prompted to select which one to remove.
 
-### `git-m config [options]`
+### `repo-do config [options]`
 
 View or modify configuration.
 
 ```bash
 # Show current config
-git-m config
+repo-do config
 
 # Get base directory
-git-m config --get baseDirectory
+repo-do config --get baseDirectory
 
 # Set base directory
-git-m config --set baseDirectory /path/to/repos
+repo-do config --set baseDirectory /path/to/repos
 ```
 
 ## Directory Structure
@@ -204,7 +204,7 @@ All repositories are organized in a consistent structure:
 
 ## Configuration
 
-Configuration is stored in `~/.git-m/config.json`:
+Configuration is stored in `~/.repo-do/config.json`:
 
 ```json
 {
@@ -215,12 +215,12 @@ Configuration is stored in `~/.git-m/config.json`:
 
 ## Cache System
 
-To improve performance, `git-m` maintains a repository cache at `~/.git-m/repo_cache.json`.
+To improve performance, `repo-do` maintains a repository cache at `~/.repo-do/repo_cache.json`.
 
 **Cache is automatically updated when:**
-- Adding a new repository (`git-m add`)
-- Removing a repository (`git-m remove`)
-- Forcing refresh (`git-m list --refresh`)
+- Adding a new repository (`repo-do add`)
+- Removing a repository (`repo-do remove`)
+- Forcing refresh (`repo-do list --refresh`)
 
 **Cache format:**
 ```json
@@ -260,7 +260,7 @@ All paths are handled using Node.js `path` module for cross-platform compatibili
 
 ## Error Handling
 
-`git-m` provides clear error messages for common issues:
+`repo-do` provides clear error messages for common issues:
 
 - **INVALID_URL**: Git URL format not recognized
 - **CLONE_FAILED**: Git clone operation failed
@@ -273,8 +273,8 @@ All paths are handled using Node.js `path` module for cross-platform compatibili
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/git-m.git
-cd git-m
+git clone https://github.com/your-username/repo-do.git
+cd repo-do
 
 # Install dependencies
 npm install
@@ -292,7 +292,7 @@ npm test
 ## Project Structure
 
 ```
-git-m/
+repo-do/
 ├── src/
 │   ├── commands/        # CLI command implementations
 │   ├── core/            # Core business logic
@@ -301,7 +301,7 @@ git-m/
 │   ├── constants/       # Constants
 │   └── index.ts         # CLI entry point
 ├── bin/
-│   └── git-m.js         # Executable entry
+│   └── repo-do.js         # Executable entry
 ├── dist/                # Compiled output
 └── tests/               # Test files
 ```
