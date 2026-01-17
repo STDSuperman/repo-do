@@ -4,7 +4,8 @@
   "description": "Unified git repository management tool",
   "main": "dist/index.js",
   "bin": {
-    "repo-do": "./bin/repo-do.js"
+    "repo-do": "./bin/repo-do.js",
+    "rpd": "./bin/repo-do.js"
   },
   "scripts": {
     "build": "tsc",

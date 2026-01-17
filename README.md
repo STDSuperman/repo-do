@@ -34,6 +34,8 @@ English · [简体中文](./docs/README.zh-CN.md)
 npm install -g repo-do
 ```
 
+> **Tip**: After installation, you can use the shorter command `rpd` instead of `repo-do` for faster typing!
+
 ## Quick Start
 
 ### 1. Initialize Configuration
